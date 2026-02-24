@@ -1,6 +1,4 @@
-# Counterfactual Contrastive Analysis
-
-This repository contains the official implementation of **Counterfactual Contrastive Analysis**.
+## This repository contains the official implementation of **Counterfactual Contrastive Analysis**.
 
 ---
 
