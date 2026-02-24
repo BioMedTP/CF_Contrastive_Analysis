@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ## Framework
 
-![Framework](example/architecture.png)
+![Framework](examples/architecture.png)
 
 Our framework learns disentangled **common** and **salient** factors in latent space, and generates counterfactuals by **swapping salient factors** while preserving common content. An optional **F-space refinement** module further improves fine details.
 
