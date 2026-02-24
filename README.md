@@ -38,6 +38,8 @@ conda create -n cfca python=3.10 -y
 conda activate cfca
 pip install -r requirements.txt
 
+---
+
 ## Implementation details
 
 We train CS-StyleGAN in two stages.
