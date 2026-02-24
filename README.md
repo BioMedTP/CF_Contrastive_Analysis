@@ -16,8 +16,8 @@ The method is built on **StyleGAN2** and includes an optional **feature-space (F
 
 Our framework learns disentangled **common** and **salient** factors in latent space, and generates counterfactuals by **swapping salient factors**.
 
-- **Latent representation learning:** each input is decomposed into a **common** factor `c` and a **salient** factor (`s_x` / `s_y`). This enables reconstruction and counterfactual (CF) editing by swapping the salient factors between images from the two classes.
-- **Detail refinement (F-space):** after swapping, we further refine image details by adjusting intermediate generator **feature-space (F-space)** representations conditioned on the common/salient manipulation.
+- **Latent Representation Learning:** we disentangle each input into a common factor `c` and a salient factor (`s_x` / `s_y`), enabling reconstruction and CF editing by swapping the salient factors between images from two classes.
+- **Detail Refinement:** we refine the swapped synthesis by adjusting **F-space** features according to the common–salient factor manipulation.
 
 ---
 
