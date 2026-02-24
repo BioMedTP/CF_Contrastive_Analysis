@@ -1,0 +1,90 @@
+{'bal_bg_t_lambda': 1.0,
+ 'batch_size': 4,
+ 'dataset_type': 'celebaHQ_smile',
+ 'directional_align_dim': 1,
+ 'directional_align_lambda': 1.0,
+ 'elastic_alpha': 0.0,
+ 'ema_decay': 0.999,
+ 'exp_dir': 'results/celebaHQ/Smile',
+ 'exp_scheme': '3Dsparsity',
+ 'id_lambda': 0.4,
+ 'image_interval': 10000,
+ 'input_nc': 3,
+ 'keep_optimizer': True,
+ 'label_nc': 0,
+ 'lasso_direction': 'element',
+ 'lasso_reg_type': 'traditional',
+ 'lasso_sbg_lambda': 0.0,
+ 'lasso_st_lambda': 0.0,
+ 'lasso_threshold': 0.0001,
+ 'lasso_weight_lambda': 0.0,
+ 'lasso_weight_type': 'all',
+ 'latent_dim': 512,
+ 'learn_in_w': False,
+ 'learning_rate': 0.01,
+ 'lpips_lambda': 0.8,
+ 'max_steps': 500000,
+ 'mlp_norm_type': 'nodim',
+ 'n_branch_layers': 8,
+ 'n_layers_mlp': 12,
+ 'n_shared_layers': 4,
+ 'net_type': 'independent',
+ 'num_epochs': 1000,
+ 'optim_name': 'admn',
+ 'orthogonality_lambda': 1.0,
+ 'output_size': 1024,
+ 'pSp_checkpoint_path': '../pretrained_models/pSp_models/psp_ffhq_encode.pt',
+ 'pix_lambda': 1.0,
+ 'previous_train_ckpt_path': None,
+ 'print_interval': 10000,
+ 'resize_factors': None,
+ 's_scale_lambda': 0.3,
+ 'save_interval': 20000,
+ 'save_training_data': True,
+ 'sbg_lambda': 1.0,
+ 'sbg_type': 'l2',
+ 'seed': 99,
+ 'spatial_encoding': 'none',
+ 'st_lambda': 1.0,
+ 'start_from_latent_avg': True,
+ 'style_dim': 18,
+ 'stylegan_weights': '../pretrained_models/pSp_models/stylegan2-ffhq1024.pt',
+ 'test_batch_size': 4,
+ 'test_workers': 4,
+ 'train_pSp_encoder': False,
+ 'train_stylegan_decoder': False,
+ 'use_ema': False,
+ 'use_wandb': False,
+ 'val_interval': 10000,
+ 'w_dist_lambda': 1.0,
+ 'workers': 4,
+ 'zero_out_silent_bg': False,
+ 'zero_out_silent_t': False,
+ 'zero_out_threshold': 0.0,
+ 'zero_out_type': 'hard'}
+using coach_csmlp3D_sparsity.py ...
+Loading pSp from checkpoint: ../pretrained_models/pSp_models/psp_ffhq_encode.pt
+Loading ResNet ArcFace
+Loading dataset for celebaHQ_smile
+Number of training samples: 11000
+Number of test samples: 2500
+Metrics for train, step 0
+	loss_lat =  {'loss_silent_bg': 0.003624135395511985, 'loss_distance_bg': 12.136433601379395, 'loss_distance_t': 12.246769905090332, 'zero_count_sbg': 0, 'zero_count_st': 0, 'total_count_s': 36864, 'loss': 24.38682746887207}
+	loss_img_bg =  {'loss_id': 1.0708268880844116, 'id_improve': -1.0708268471062183, 'loss_pix': 0.3423351049423218, 'loss_lpips': 0.455689013004303, 'loss': 1.1352170705795288}
+	loss_img_t =  {'loss_id': 0.9838394522666931, 'id_improve': -0.983839406631887, 'loss_pix': 0.4284871518611908, 'loss_lpips': 0.5050036311149597, 'loss': 1.2260258197784424}
+	loss_sum =  26.74807035923004
+Metrics for train, step 25
+	loss_lat =  {'loss_silent_bg': 0.005142048932611942, 'loss_distance_bg': 12.231040000915527, 'loss_distance_t': 12.396406173706055, 'zero_count_sbg': 0, 'zero_count_st': 0, 'total_count_s': 36864, 'loss': 24.632587432861328}
+	loss_img_bg =  {'loss_id': 0.9911195039749146, 'id_improve': -0.9911194974556565, 'loss_pix': 0.2785434424877167, 'loss_lpips': 0.45452970266342163, 'loss': 1.0386149883270264}
+	loss_img_t =  {'loss_id': 0.9590675830841064, 'id_improve': -0.9590675607323647, 'loss_pix': 0.23794786632061005, 'loss_lpips': 0.4901944398880005, 'loss': 1.0137304067611694}
+	loss_sum =  26.684932827949524
+Metrics for train, step 50
+	loss_lat =  {'loss_silent_bg': 0.021746035665273666, 'loss_distance_bg': 11.926231384277344, 'loss_distance_t': 12.20893669128418, 'zero_count_sbg': 0, 'zero_count_st': 0, 'total_count_s': 36864, 'loss': 24.15691375732422}
+	loss_img_bg =  {'loss_id': 0.9749187231063843, 'id_improve': -0.974918763153255, 'loss_pix': 0.20569801330566406, 'loss_lpips': 0.458109974861145, 'loss': 0.9621534943580627}
+	loss_img_t =  {'loss_id': 1.0769721269607544, 'id_improve': -1.0769721227698028, 'loss_pix': 0.2896217107772827, 'loss_lpips': 0.5448928475379944, 'loss': 1.156324863433838}
+	loss_sum =  26.27539211511612
+Metrics for train, step 75
+	loss_lat =  {'loss_silent_bg': 0.1859786957502365, 'loss_distance_bg': 10.187508583068848, 'loss_distance_t': 8.774066925048828, 'zero_count_sbg': 0, 'zero_count_st': 0, 'total_count_s': 36864, 'loss': 19.147552490234375}
+	loss_img_bg =  {'loss_id': 0.9290757775306702, 'id_improve': -0.9290757747367024, 'loss_pix': 0.22113275527954102, 'loss_lpips': 0.4011770486831665, 'loss': 0.9137047529220581}
+	loss_img_t =  {'loss_id': 0.9261189103126526, 'id_improve': -0.9261188399977982, 'loss_pix': 0.3620761036872864, 'loss_lpips': 0.47291240096092224, 'loss': 1.110853672027588}
+	loss_sum =  21.17211091518402

@@ -1,0 +1,11 @@
+/home/ids/yuhe/anaconda3/envs/styleGANenv/lib/python3.11/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/ids/yuhe/anaconda3/envs/styleGANenv/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/ids/yuhe/Projects/CA_with_GAN/3_code/styleGAN/pSp_encoder_constructive/training/ranger.py:123: UserWarning: This overload of addcmul_ is deprecated:
+	addcmul_(Number value, Tensor tensor1, Tensor tensor2)
+Consider using one of the following signatures instead:
+	addcmul_(Tensor tensor1, Tensor tensor2, *, Number value) (Triggered internally at ../torch/csrc/utils/python_arg_parser.cpp:1630.)
+  exp_avg_sq.mul_(beta2).addcmul_(1 - beta2, grad, grad)
+slurmstepd-node04: error: *** JOB 257091 ON node04 CANCELLED AT 2025-01-14T22:55:18 DUE TO TIME LIMIT ***
+slurmstepd-node05: error: *** JOB 257092 ON node05 CANCELLED AT 2025-01-14T22:57:48 DUE TO TIME LIMIT ***
