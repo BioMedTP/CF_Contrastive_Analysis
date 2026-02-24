@@ -53,7 +53,7 @@ We use:
 - a StyleGAN2 generator `G`,
 - an F-space encoder `E_f` and an adapter module `F_Adpt` for feature-space refinement.
 
-Unless stated otherwise, we follow the original architectures and pretrained setups for these components (trained per dataset on the corresponding training split).
+Unless stated otherwise, we follow the original architectures and pretrained setups for these architectures (trained per dataset on the corresponding training split).
 
 ---
 
