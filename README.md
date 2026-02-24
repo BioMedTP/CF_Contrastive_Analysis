@@ -37,28 +37,41 @@ We recommend using `conda`:
 conda create -n cfca python=3.10 -y
 conda activate cfca
 pip install -r requirements.txt
-
+```
 ---
 
 ## Implementation details
 
+### Two-stage training
+
 We train CS-StyleGAN in two stages.
 
-**Backbone / components.** We use a pSp encoder `E` for inversion, a StyleGAN2 generator `G`, and an F-space encoder `E_f` / adapter module for feature-space refinement. Unless stated otherwise, we follow the original architectures and pretrained setups for these components (trained per dataset on the corresponding training split).
+### Backbone / components
+
+We use:
+- a pSp encoder `E` for inversion,
+- a StyleGAN2 generator `G`,
+- an F-space encoder `E_f` and an adapter module `F_Adpt` for feature-space refinement.
+
+Unless stated otherwise, we follow the original architectures and pretrained setups for these components (trained per dataset on the corresponding training split).
+
+---
 
 ### Stage 1 — Latent separator training (W-space)
 
 We first warm up the separator `H_cs` using latent- and image-reconstruction objectives to reduce the discrepancy between each input and its reconstruction. After ~2,000 warm-up steps, the learned latent factors can reliably recover coarse structure.
 
 We then jointly train `H_cs` with a discriminator `D` and a regularizer/regressors `R` in an alternating manner:
-- update `D` and `R` (maximize their objectives);
-- freeze `D` and `R`, and update `H_cs` (minimize the separator objective).
+1. update `D` and `R` (maximize their objectives)
+2. freeze `D` and `R`, and update `H_cs` (minimize the separator objective)
 
-**Hyperparameters (typical).**
+**Hyperparameters (typical):**
 - learning rate: `1e-4` for `D` and `R`, `1e-3` for `H_cs`
 - loss weights: `lambda_lat=0.01`, `lambda_D=lambda_R=0.02`, `lambda_lpips=0.8` (others set to 1)
 - optimizer: Adam
 - training length: ~160k steps
+
+---
 
 ### Stage 2 — Feature-space refinement (F-space, optional)
 
@@ -66,7 +79,7 @@ After training the separator `H_cs`, we train the refinement module using latent
 
 For the adversarial term, we initialize a StyleGAN2 discriminator `D` from a pretrained model and fine-tune it during refinement training.
 
-**Hyperparameters (typical).**
+**Hyperparameters (typical):**
 - `lambda_adv=0.02`, `lambda_lpips=0.8`
 - optimizer: Ranger
 - learning rate: `2e-4`
