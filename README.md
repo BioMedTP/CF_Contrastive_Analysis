@@ -23,8 +23,8 @@ Our framework learns disentangled **common** and **salient** factors in latent s
 
 ## Repository structure
 
-- `psp_CS-StyleGAN/` : CS-StyleGAN training & inference code (Stage 1 + Stage 2 refinement)
-- `StyleFeatureEditor-CS/` : feature-space refinement modules / utilities
+- `psp_CS-StyleGAN/` : CS-StyleGAN training & inference code (Stage 1)
+- `StyleFeatureEditor-CS/` : feature-space refinement modules / utilities (Stage 2)
 
 ---
 
