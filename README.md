@@ -139,5 +139,7 @@ python scripts/train.py \
   data.transform=face_256
 ```
 
+Finally, in `./StyleFeatureEditor-CS/inference_ipynb`, we provide a series of example notebooks for inference. 
 
+**Note:** the first cell in each notebook initializes the environment (imports, paths, and checkpoints). Please make sure your notebook kernel uses the **same Python environment and installed packages** as the training setup.
 
