@@ -83,7 +83,7 @@ python training_scripts/train.py \
   --stylegan_weights <PATH_TO_STYLEGAN2_WEIGHTS>.pt \
   --stylegan_size 256 \
   --data_transform rgb256 \
-  --image_interval 1 \
+  --image_interval 2000 \
   --log_interval 100 \
   --val_interval 2000 \
   --save_interval 10000 \
