@@ -45,14 +45,17 @@ pip install -r requirements.txt
 
 We train CS-StyleGAN in two stages.
 
-### Backbone / components
+### Architecture / Backbone
 
-We use:
-- a pSp encoder `E` for inversion,
-- a StyleGAN2 generator `G`,
-- an F-space encoder `E_f` and an adapter module `F_Adpt` for feature-space refinement.
+Our method is built upon the following works and architectures:
 
-Unless stated otherwise, we follow the original architectures and pretrained setups for these architectures (trained per dataset on the corresponding training split).
+- a **pSp encoder** `E` for inversion ([Richardson et al., 2021](https://arxiv.org/abs/2008.00951)),
+- the separator **H_cs** for latent separation, adopted from [He et al., 2025](https://arxiv.org/abs/2402.11928),
+- a **StyleGAN2 generator** `G` ([Karras et al., 2019](https://arxiv.org/abs/1912.04958)),
+- an **F-space encoder** `E_f` and adapter module `F_Adpt` from [Bobkov et al., 2024](https://arxiv.org/abs/2406.10601).
+
+Unless stated otherwise, we adhere to the original architectures and pretrained configurations provided in the respective official repositories. 
+Training is conducted separately for each dataset and its corresponding X/Y split.
 
 ---
 
