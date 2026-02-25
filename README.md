@@ -71,6 +71,10 @@ We then jointly train `H_cs` with a discriminator `D` and a regularizer/regresso
 - optimizer: Adam
 - training length: ~160k steps
 
+More examples of training script commonds for training can be found in：
+
+    CF_Contrastive_Analysis/pSp_CS-StyleGAN/run_train.sh
+
 ---
 
 ### Stage 2 — Feature-space refinement (F-space, optional)
