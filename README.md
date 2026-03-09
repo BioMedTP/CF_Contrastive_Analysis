@@ -39,12 +39,6 @@ pip install -r requirements.txt
 ```
 ---
 
-## Implementation details
-
-### Two-stage training
-
-We train CS-StyleGAN in two stages.
-
 ### Architecture / Backbone
 
 Our method is built upon the following works and architectures:
@@ -58,6 +52,12 @@ Unless stated otherwise, we adhere to the original architectures and pretrained 
 Training is conducted separately for each dataset and its corresponding X/Y split.
 
 ---
+
+## Implementation details
+
+### Two-stage training
+
+We train CS-StyleGAN in two stages.
 
 ### Stage 1 — Latent separator training (W-space)
 
