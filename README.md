@@ -4,9 +4,7 @@
 
 ## Overview
 
-We propose a **classifier-free** approach for Visual Counterfactual Explanations (VCEs) based on **Contrastive Analysis (CA)**.  
-Given two datasets **X** and **Y**, we disentangle **common** factors (**c**) and **salient** factors (**s_x**, **s_y**), and generate counterfactuals by **swapping salient factors** while preserving common content.  
-The method is built on **StyleGAN2** and includes an **feature-space (F-space) refinement** stage for higher-fidelity edits.
+We propose a **classifier-free** approach for Visual Counterfactual Explanations (VCEs) based on **Contrastive Analysis (CA)**. Given two datasets **X** and **Y**, we disentangle **common** factors (**c**) and **salient** factors (**s_x**, **s_y**), and generate counterfactuals by **swapping salient factors** while preserving common content. The method is built on **StyleGAN2** and includes an **feature-space (F-space) refinement** stage for higher-fidelity edits.
 
 ---
 
