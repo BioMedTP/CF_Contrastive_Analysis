@@ -23,7 +23,7 @@ Our framework learns disentangled **common** and **salient** factors in latent s
 
 ![Framework](examples/Comparison-SOTA.png)
 
-**Comparisons of CF generation**. Cols. 2–5 show CF outputs from SOTA diffusion-based methods. Cols. 6–8 show CF outputs from T2I diffusion models
+**Comparisons of CF generation**. Cols. 2–5 show CF outputs from SOTA diffusion-based methods for CF. Cols. 6–8 show CF outputs from T2I diffusion models
 
 
 ![Framework](examples/Interpolated_CF.png)
