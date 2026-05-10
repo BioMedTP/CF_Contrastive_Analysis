@@ -123,11 +123,11 @@ python training_scripts/train.py \
   --lpips_lambda 0.8 \
   --max_steps 200000 \
   --num_D_layers 1 \
-  --D_lambda 0.05 \
+  --D_lambda 0.02 \
   --D_start_step 2000 \
   --D_mode confusion \
   --num_R_layers 2 \
-  --R_lambda 0.05 \
+  --R_lambda 0.02 \
   --R_start_step 2000 \
   --R_mode RegrR
 ```
