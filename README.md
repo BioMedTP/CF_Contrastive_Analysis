@@ -71,6 +71,18 @@ Training is conducted separately for each dataset and its corresponding X/Y spli
 
 We train CS-StyleGAN in two stages.
 
+### Training protocol and main hyperparameters
+
+The pretrained StyleGAN2 generator `G` is kept frozen during the common/salient factor learning stage, so the pretrained generative prior is not disrupted. Training is performed separately for each dataset and its corresponding X/Y split. Most hyperparameters are shared across datasets; dataset-specific settings mainly include the dataset split, checkpoints, and data transforms.
+
+| Stage | Space | Trainable modules | Frozen modules | Optimizer / LR | Main loss weights | Training schedule | Purpose |
+|---|---|---|---|---|---|---|---|
+| Warm-up | W-space | `H_cs` | `E`, `G` | Adam, lr=`1e-3` | latent/image reconstruction losses | ~2k steps | Stabilize reconstruction and recover coarse structure before regularized training |
+| Stage 1: latent separator training | W-space | `H_cs`, `D`, `R` | `E`, `G` | Adam; lr=`1e-3` for `H_cs`, lr=`1e-4` for `D/R` | `lambda_lat=0.01`, `lambda_D=lambda_R=0.02`, `lambda_lpips=0.8`; other loss weights set to 1 | ~160k steps; alternating updates of `D/R` and `H_cs` | Learn compact common/salient latent factors for controllable counterfactual editing |
+| Stage 2: feature-space refinement | F-space | refinement module, StyleGAN2 discriminator `D` | `E`, `H_cs`, `G` | Ranger, lr=`2e-4` | `lambda_adv=0.02`, `lambda_lpips=0.8` | ~200k steps | Improve detail preservation and image fidelity of swapped counterfactual outputs |
+
+Other hyperparameters are kept at the default values provided in the corresponding configuration files. The example commands below show the full settings used in our experiments.
+
 ### Stage 1 — Latent separator training (W-space)
 
 We first warm up the separator `H_cs` using latent- and image-reconstruction objectives to reduce the discrepancy between each input and its reconstruction. After ~2,000 warm-up steps, the learned latent factors can reliably recover coarse structure.
