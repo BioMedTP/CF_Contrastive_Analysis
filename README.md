@@ -146,6 +146,7 @@ python scripts/train.py \
   data.special_idx=-1 \
   data.dataset=bloodmnist_x1y6 \
   data.transform=face_256
+  model.pSp_cs_path=<PATH_TO_pSp-cs_CHECKPOINT>.pt \
 ```
 
 ### Training protocol and main hyperparameters
