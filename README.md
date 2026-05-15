@@ -79,25 +79,6 @@ We then jointly train `H_cs` with a discriminator `D` and a regularizer/regresso
 1. update `D` and `R` (maximize their objectives)
 2. freeze `D` and `R`, and update `H_cs` (minimize the separator objective)
 
-**Hyperparameters (typical):**
-- learning rate: `1e-4` for `D` and `R`, `1e-3` for `H_cs`
-- loss weights: `lambda_lat=0.01`, `lambda_D=lambda_R=0.02`, `lambda_lpips=0.8` (others set to 1)
-- optimizer: Adam
-- training length: ~160k steps
-
-### Training protocol and main hyperparameters
-
-The pretrained StyleGAN2 generator `G` is kept frozen during the common/salient factor learning stage, so the pretrained generative prior is not disrupted. Training is performed separately for each dataset and its corresponding X/Y split. Most hyperparameters are shared across datasets; dataset-specific settings mainly include the dataset split, checkpoints, and data transforms.
-
-| Stage | Space | Trainable modules | Frozen modules | Optimizer / LR | Main loss weights | Training schedule | Purpose |
-|---|---|---|---|---|---|---|---|
-| Warm-up | W-space | `H_cs` | `E`, `G` | Adam, lr=`1e-3` | latent/image reconstruction losses | ~2k steps | Stabilize reconstruction and recover coarse structure before regularized training |
-| Stage 1: latent separator training | W-space | `H_cs`, `D`, `R` | `E`, `G` | Adam; lr=`1e-3` for `H_cs`, lr=`1e-4` for `D/R` | `lambda_lat=0.01`, `lambda_D=lambda_R=0.02`, `lambda_lpips=0.8`; other loss weights set to 1 | ~160k steps; alternating updates of `D/R` and `H_cs` | Learn compact common/salient latent factors for controllable counterfactual editing |
-| Stage 2: feature-space refinement | F-space | refinement module, StyleGAN2 discriminator `D` | `E`, `H_cs`, `G` | Ranger, lr=`2e-4` | `lambda_adv=0.02`, `lambda_lpips=0.8` | ~200k steps | Improve detail preservation and image fidelity of swapped counterfactual outputs |
-
-Other hyperparameters are kept at the default values provided in the corresponding configuration files. The example commands below show the full settings used in our experiments.
-
-
 **Example command (BraTS Healthy vs Tumor):**
 ```bash
 python training_scripts/train.py \
@@ -166,6 +147,20 @@ python scripts/train.py \
   data.dataset=bloodmnist_x1y6 \
   data.transform=face_256
 ```
+
+### Training protocol and main hyperparameters
+
+The pretrained StyleGAN2 generator `G` is kept frozen during the common/salient factor learning stage, so the pretrained generative prior is not disrupted. Training is performed separately for each dataset and its corresponding X/Y split. Most hyperparameters are shared across datasets; dataset-specific settings mainly include the dataset split, checkpoints, and data transforms.
+
+| Stage | Space | Trainable modules | Frozen modules | Optimizer / LR | Main loss weights | Training schedule | Purpose |
+|---|---|---|---|---|---|---|---|
+| Warm-up | W-space | `H_cs` | `E`, `G` | Adam, lr=`1e-3` | latent/image reconstruction losses | ~2k steps | Stabilize reconstruction and recover coarse structure before regularized training |
+| Stage 1: latent separator training | W-space | `H_cs`, `D`, `R` | `E`, `G` | Adam; lr=`1e-3` for `H_cs`, lr=`1e-4` for `D/R` | `lambda_lat=0.01`, `lambda_D=lambda_R=0.02`, `lambda_lpips=0.8`; other loss weights set to 1 | ~160k steps; alternating updates of `D/R` and `H_cs` | Learn compact common/salient latent factors for controllable counterfactual editing |
+| Stage 2: feature-space refinement | F-space | refinement module, StyleGAN2 discriminator `D` | `E`, `H_cs`, `G` | Ranger, lr=`2e-4` | `lambda_adv=0.02`, `lambda_lpips=0.8` | ~200k steps | Improve detail preservation and image fidelity of swapped counterfactual outputs |
+
+Other hyperparameters are kept at the default values provided in the corresponding configuration files. The example commands below show the full settings used in our experiments.
+
+
 
 Finally, in `./StyleFeatureEditor-CS/inference_ipynb`, we provide a series of example notebooks for inference. 
 
