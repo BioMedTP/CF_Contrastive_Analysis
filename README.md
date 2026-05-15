@@ -69,7 +69,7 @@ Training is conducted separately for each dataset and its corresponding X/Y spli
 
 ### Two-stage training
 
-We train CS-StyleGAN in two stages.
+We train CS-StyleGAN in two stages as following:
 
 ### Stage 1 — Latent separator training (W-space)
 
