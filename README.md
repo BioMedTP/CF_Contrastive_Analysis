@@ -173,7 +173,7 @@ Finally, in `./StyleFeatureEditor-CS/inference_ipynb`, we provide a series of ex
 
 **Last updated:** June 23, 2026
 
-For questions, issues, or requests related to the code, please contact: **ylh.icandoit@gmail.com**
+For more questions or requests related to the code, please contact: **ylh.icandoit@gmail.com**
 
 
 
