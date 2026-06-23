@@ -193,7 +193,7 @@ Other hyperparameters are kept at the default values provided in the correspondi
 
 Finally, in `./StyleFeatureEditor-CS/inference_ipynb`, we provide a series of example notebooks for inference. 
 
-**Note:** the first cell in each notebook initializes the environment, including imports, paths, and checkpoints. Please make sure your notebook kernel uses the **same Python environment and installed packages** as the training setup.
+---
 
 **Last updated:** June 23, 2026
 
