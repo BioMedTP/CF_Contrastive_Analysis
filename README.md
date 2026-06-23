@@ -1,8 +1,8 @@
 
 
-## Official implementation of our MICCAI 2026 accepted paper:
-
 # Counterfactual Contrastive Analysis
+
+This repository provides the official implementation of the MICCAI 2026 accepted paper **Counterfactual Contrastive Analysis**.
 
 ---
 
@@ -195,7 +195,10 @@ Finally, in `./StyleFeatureEditor-CS/inference_ipynb`, we provide a series of ex
 
 ---
 
-**Last updated:** June 23, 2026
+## News
+
+* **[June 23, 2026]** The repository is being updated for the MICCAI 2026 camera-ready release.
+* **[June 2026]** The paper has been accepted by **MICCAI 2026**.
 
 For more questions or requests related to the code, please contact: **ylh.icandoit@gmail.com**
 
