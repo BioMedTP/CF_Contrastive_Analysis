@@ -153,19 +153,43 @@ python scripts/train.py \
   model.pSp_cs_path=<PATH_TO_pSp-cs_CHECKPOINT>.pt \
 ```
 
-### Training protocol and main hyperparameters
+## Training protocol and recommended hyperparameters
 
-The pretrained StyleGAN2 generator `G` is kept frozen during the common/salient factor learning stage, so the pretrained generative prior is not disrupted. Training is performed separately for each dataset and its corresponding X/Y split. Most hyperparameters are shared across datasets; dataset-specific settings mainly include the dataset split, checkpoints, and data transforms.
+The pretrained StyleGAN2 generator `G` is kept frozen during the common/salient factor learning stage, so the pretrained generative prior is not disrupted. Training is performed separately for each dataset and its corresponding X/Y split.
 
-| Stage | Space | Trainable modules | Frozen modules | Optimizer / LR | Main loss weights | Training schedule | Purpose |
-|---|---|---|---|---|---|---|---|
-| Warm-up | W-space | `H_cs` | `E`, `G` | Adam, lr=`1e-3` | latent/image reconstruction losses | ~2k steps | Stabilize reconstruction and recover coarse structure before regularized training |
-| Stage 1: latent separator training | W-space | `H_cs`, `D`, `R` | `E`, `G` | Adam; lr=`1e-3` for `H_cs`, lr=`1e-4` for `D/R` | `lambda_lat=0.01`, `lambda_D=lambda_R=0.02`, `lambda_lpips=0.8`; other loss weights set to 1 | ~160k steps; alternating updates of `D/R` and `H_cs` | Learn compact common/salient latent factors for controllable counterfactual editing |
-| Stage 2: feature-space refinement | F-space | refinement module, StyleGAN2 discriminator `D` | `E`, `H_cs`, `G` | Ranger, lr=`2e-4` | `lambda_adv=0.02`, `lambda_lpips=0.8` | ~200k steps | Improve detail preservation and image fidelity of swapped counterfactual outputs |
+The following settings correspond to the default/recommended configurations used in our experiments. Dataset-specific settings mainly include the dataset split, checkpoints, and data transforms.
+
+### Warm-up
+
+* **Space:** W-space
+* **Trainable modules:** `H_cs`
+* **Frozen modules:** `E`, `G`
+* **Optimizer:** Adam, lr=`1e-3`
+* **Main losses:** latent/image reconstruction losses
+* **Schedule:** ~2k steps
+* **Purpose:** stabilize reconstruction and recover coarse structure before regularized training.
+
+### Stage 1 — Latent separator training
+
+* **Space:** W-space
+* **Trainable modules:** `H_cs`, `D`, `R`
+* **Frozen modules:** `E`, `G`
+* **Optimizer:** Adam
+* **Main loss weights:** `lambda_D=0.02`, `lambda_R=0.02`, `lambda_lpips=0.8`
+* **Schedule:** ~160k steps
+* **Purpose:** learn compact common/salient latent factors for controllable counterfactual editing.
+
+### Stage 2 — Feature-space refinement
+
+* **Space:** F-space
+* **Trainable modules:** refinement module, StyleGAN2 discriminator `D`
+* **Frozen modules:** `E`, `H_cs`, `G`
+* **Optimizer:** Ranger, lr=`2e-4`
+* **Main loss weights:** `lambda_adv=0.02`, `lambda_lpips=0.8`
+* **Schedule:** ~200k steps
+* **Purpose:** improve detail preservation and image fidelity of swapped counterfactual outputs.
 
 Other hyperparameters are kept at the default values provided in the corresponding configuration files. The example commands below show the full settings used in our experiments.
-
-
 
 Finally, in `./StyleFeatureEditor-CS/inference_ipynb`, we provide a series of example notebooks for inference. 
 
