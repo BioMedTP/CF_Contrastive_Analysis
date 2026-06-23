@@ -188,7 +188,7 @@ The following settings correspond to the default/recommended configurations used
 * **Main loss weights:** `lambda_adv=0.02`, `lambda_lpips=0.8`
 * **Schedule:** ~200k steps
 * **Purpose:** improve detail preservation and image fidelity of swapped counterfactual outputs.
-* 
+
 Other hyperparameters follow the default values used in the provided training scripts and configuration files. The example commands above show the full settings used in our experiments.
 
 Finally, in `./StyleFeatureEditor-CS/inference_ipynb`, we provide a series of example notebooks for inference. 
