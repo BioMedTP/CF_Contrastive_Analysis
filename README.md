@@ -2,7 +2,7 @@
 
 Official implementation of our MICCAI 2026 accepted paper:
 
-**Counterfactual Contrastive Analysis**
+# Counterfactual Contrastive Analysis
 
 ---
 
