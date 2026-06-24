@@ -125,7 +125,6 @@ python training_scripts/train.py \
   --R_start_step 2000 \
   --R_mode RegrR
 ```
----
 
 ### Stage 2 — Feature-space refinement (F-space)
 
@@ -165,6 +164,7 @@ python scripts/train.py \
   data.transform=face_256
   model.pSp_cs_path=<PATH_TO_pSp-cs_CHECKPOINT>.pt \
 ```
+---
 
 ## Training protocol and recommended hyperparameters
 
