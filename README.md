@@ -9,9 +9,11 @@ This repository provides the official implementation of the paper **Counterfactu
 ## Overview
 
 <p align="justify">
-We propose a **classifier-free** approach for Visual Counterfactual Explanations (VCEs) based on **Contrastive Analysis (CA)**. Given two datasets corresponding to different classes, e.g., healthy and patient images, our method disentangles **common factors** shared across datasets from **salient factors** specific to each dataset, and generates counterfactual images by swapping only the salient factors while preserving common content.
+We propose a <strong>classifier-free</strong> approach for Visual Counterfactual Explanations (VCEs) based on <strong>Contrastive Analysis (CA)</strong>. Given two datasets corresponding to different classes, e.g., healthy and patient images, our method disentangles <strong>common factors</strong> shared across datasets from <strong>salient factors</strong> specific to each dataset, and generates counterfactual images by swapping only the salient factors while preserving common content.
+</p>
 
-Unlike classifier-dependent VCE methods, our approach operates directly on data distributions rather than classifier decision boundaries, making the generated counterfactuals less sensitive to classifier biases and failure modes. The method is built on **StyleGAN2** and further refines generated images in the intermediate generator feature space (**F-space**) to improve fine-grained detail preservation.
+<p align="justify">
+Unlike classifier-dependent VCE methods, our approach operates directly on data distributions rather than classifier decision boundaries, making the generated counterfactuals less sensitive to classifier biases and failure modes. The method is built on <strong>StyleGAN2</strong> and further refines generated images in the intermediate generator feature space (<strong>F-space</strong>) to improve fine-grained detail preservation.
 </p>
 
 ---
