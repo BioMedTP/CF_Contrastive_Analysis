@@ -167,9 +167,14 @@ python scripts/train.py \
 
 ## Training protocol and recommended hyperparameters
 
-The pretrained StyleGAN2 generator `G` is kept frozen during the common/salient factor learning stage, so the pretrained generative prior is not disrupted. Training is performed separately for each dataset and its corresponding X/Y split.
+<p align="justify">
+The pretrained StyleGAN2 generator <code>G</code> is kept frozen during the common/salient factor learning stage, so the pretrained generative prior is not disrupted. Training is performed separately for each dataset and its corresponding X/Y split.
+</p>
 
+<p align="justify">
 The following settings correspond to the default/recommended configurations used in our experiments. Dataset-specific settings mainly include the dataset split, checkpoints, and data transforms.
+</p>
+
 
 ### Warm-up
 
