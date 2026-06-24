@@ -164,7 +164,6 @@ python scripts/train.py \
   data.transform=face_256
   model.pSp_cs_path=<PATH_TO_pSp-cs_CHECKPOINT>.pt \
 ```
----
 
 ## Training protocol and recommended hyperparameters
 
