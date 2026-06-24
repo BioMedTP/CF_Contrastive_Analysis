@@ -62,7 +62,6 @@ conda create -n cfca python=3.10 -y
 conda activate cfca
 pip install -r requirements.txt
 ```
----
 
 ### Architecture / Backbone
 
