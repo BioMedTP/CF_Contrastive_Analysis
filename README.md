@@ -2,7 +2,7 @@
 
 # Counterfactual Contrastive Analysis
 
-This repository provides the official implementation of the paper **Counterfactual Contrastive Analysis**, accepted by MICCAI 2026.
+This repository provides the official implementation of the paper **Counterfactual Contrastive Analysis**, which was accepted at MICCAI 2026..
 
 ---
 
