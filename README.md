@@ -44,6 +44,7 @@ Our framework learns disentangled **common** and **salient** factors in latent s
 **Interpolated CF.** Given two real images $x$ and $y$, our method synthesizes a sequence of interpolated counterfactual images by varying $\alpha$ from 0 to 1. Along this path, the classifier’s predicted probability changes smoothly, indicating that the generated transformations are semantically meaningful and consistent with the model’s decision boundary.
 
 </div>
+
 ---
 
 ## Repository structure
