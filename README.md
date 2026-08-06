@@ -2,7 +2,7 @@
 
 # Counterfactual Contrastive Analysis
 
-This repository provides the official implementation of the paper **Counterfactual Contrastive Analysis**, which was accepted at MICCAI 2026..
+This repository provides the official implementation of the paper **Counterfactual Contrastive Analysis**, which was accepted at MICCAI 2026.
 
 ---
 
@@ -86,11 +86,12 @@ We train CS-StyleGAN in two stages as following:
 
 ### Stage 1 — Latent separator training (W-space)
 
-We first warm up the separator `H_cs` using latent- and image-reconstruction objectives to reduce the discrepancy between each input and its reconstruction. After ~2,000 warm-up steps, the learned latent factors can reliably recover coarse structure.
+We first warm up the separator `H_cs` using the latent- and image-reconstruction losses, `L_lat` and `L_img`. After approximately 2,000 warm-up steps, `H_cs` produces informative common and salient factors that support reliable reconstruction. This prevents the discriminator `D` and regularizer `R` from being trained on arbitrary latent representations produced at initialization.
 
-We then jointly train `H_cs` with a discriminator `D` and a regularizer/regressors `R` in an alternating manner:
-1. update `D` and `R` (maximize their objectives)
-2. freeze `D` and `R`, and update `H_cs` (minimize the separator objective)
+We then train `H_cs`, `D`, and `R` in an alternating manner:
+
+1. Freeze `H_cs`, and update `D` and `R` by maximizing their respective objectives.
+2. Freeze `D` and `R`, and update `H_cs` by minimizing the separator objective.
 
 **Example command (BraTS Healthy vs Tumor):**
 ```bash
